@@ -15,6 +15,10 @@ const navLinks = [
         href: "/posts",
         label: "Posts"
     },
+    {
+        href: "/create-post",
+        label: "Create post"
+    }
 ]
 
 const Header = () => {

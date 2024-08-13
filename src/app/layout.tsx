@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Container from "@/components/container";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,14 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-zinc-100 text-zinc-900 min-h-screen`}>
-        <Container>
-          <Header/>
-          {children}
-          <Footer/>
-        </Container>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${inter.className} bg-zinc-100 text-zinc-900 min-h-screen`}>
+          <Container>
+            <Header/>
+            {children}
+            <Footer/>
+          </Container>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
